@@ -1,4 +1,15 @@
-<h1>Welcome to Shono Mercy Museum</h1>
+{% extends 'museum/base.html' %}
 
-<a href="/posts">レコードリスト</a>
-<a href="/admin">管理画面</a>
+{% block content %}
+    <a href="/posts">レコードリスト</a>
+    <a href="/profile">Profile</a>
+    <a href="/news">NEWS</a>
+    <a href="/thanks">special thanks</a>
+    <a href="/admin">管理画面</a>
+    <a href="/terms">Terms</a>
+    {% for genre in genres %}
+        <div>
+            <a href="/genres/{{ genre.id }}">{{ genre.name }}</a>
+        </div>
+    {% endfor %}
+{% endblock %}

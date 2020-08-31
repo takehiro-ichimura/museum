@@ -1,0 +1,18 @@
+{% extends 'museum/base.html' %}
+
+{% block content %}
+    {% for post in posts %}
+        <div>
+            <p>published: {{ post.published_date }}</p>
+            <h2><a href="">{{ post.title }}</a>/<a href="">{{ post.artist }}</a></h2>
+            <div>
+                {% autoescape off %}
+                    {{ post.movie_tag }}
+                {% endautoescape %}
+            </div>
+            <p>{{ post.text|linebreaksbr }}</p>
+        </div>
+    {% endfor %}
+
+    <a href="/">top</a>
+{% endblock %}

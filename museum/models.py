@@ -4,11 +4,23 @@ from django.db import models
 from django.conf import settings
 from django.utils import timezone
 
+class Genre(models.Model):
+    name = models.CharField(max_length=200, null=True)
+    
+    def __str__(self):
+        return self.name
+
+class Artist(models.Model):
+    name = models.CharField(max_length=200, null=True)
+    genre = models.ManyToManyField(Genre)
+
+    def __str__(self):
+        return self.name
 
 class Post(models.Model):
     title = models.CharField(max_length=200)
-    artist = models.CharField(max_length=200, null=True)
-    year = models.CharField(max_length=200, null=True)
+    artist = models.ManyToManyField(Artist)
+    year = models.IntegerField(null=True)
     movie_tag = models.TextField()
     text = models.TextField()
     created_date = models.DateTimeField(default=timezone.now)
