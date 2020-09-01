@@ -1,6 +1,6 @@
 from django.shortcuts import render
 from django.utils import timezone
-from .models import Post, Artist, Genre
+from .models import Post, Artist, Genre, News, Dbs
 
 # Create your views here.
 def post_list(request):
@@ -12,6 +12,23 @@ def genre_show(request, genre_id):
     artists = genre.artist_set.all()
     return render(request, 'museum/artists.html', {'artists': artists})
 
+def post_show(request, post_id):
+    post = Post.objects.all().get(id=post_id)
+    artists = post.artists.all()
+    return render(request, 'museum/post_show.html', {'post': post, 'artists': artists})
+
+def artists(request):
+    artists = Artist.objects.all()
+    return render(request, 'museum/artists.html', {'artists': artists})
+
 def top(request):
     genres = Genre.objects.all()
     return render(request, 'museum/top.html', {'genres': genres})
+
+def news(request):
+    news = News.objects.all()
+    return render(request, 'museum/news.html', {'newss': news})
+
+def news_show(request, news_id):
+    news = News.objects.all().get(id=news_id)
+    return render(request, 'museum/news.html', {'news': news})

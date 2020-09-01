@@ -1,15 +1,17 @@
 {% extends 'museum/base.html' %}
 
 {% block content %}
-    <a href="/posts">レコードリスト</a>
-    <a href="/profile">Profile</a>
-    <a href="/news">NEWS</a>
-    <a href="/thanks">special thanks</a>
-    <a href="/admin">管理画面</a>
-    <a href="/terms">Terms</a>
-    {% for genre in genres %}
-        <div>
-            <a href="/genres/{{ genre.id }}">{{ genre.name }}</a>
-        </div>
-    {% endfor %}
+    <div>
+        <a href="/profile" class="btn">Profile</a>
+        <a href="/news" class="btn">NEWS</a>
+        <a href="/dbs" class="btn">Detroit Blues Society</a>
+        <a href="/thanks" class="btn">special thanks</a>
+    </div>
+    <div>
+        <p>Record Collection</p>
+        <a href="/artists" class="btn">ALL</a>
+        {% for genre in genres %}
+            <a href="/genres/{{ genre.id }}" class="btn">{{ genre.name }}</a>
+        {% endfor %}
+    </div>
 {% endblock %}

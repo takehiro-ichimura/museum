@@ -3,6 +3,10 @@ from . import views
 
 urlpatterns = [
     path('posts', views.post_list, name='post_list'),
+    path('posts/<int:post_id>', views.post_show, name="post_show"),
     path('genres/<int:genre_id>', views.genre_show, name='genre_show'),
-    path('', views.top, name='post_list'),
+    path('artists', views.artists, name="artists"),
+    path('news', views.news, name="news"),
+    path('news/<int:news_id>', views.news_show, name="news"),
+    path('', views.top, name='top'),
 ]
