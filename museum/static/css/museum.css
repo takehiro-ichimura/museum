@@ -1,5 +1,9 @@
 h1 a, h2 a {
-    color: #FF8833;
+    color: black;
+}
+
+body {
+    font-family: 'Sawarabi Mincho', sans-serif;
 }
 
 .movie{

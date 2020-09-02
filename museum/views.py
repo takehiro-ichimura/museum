@@ -46,3 +46,6 @@ def thanks(request):
 
 def profile(request):
     return render(request, 'museum/profile.html')
+
+def terms(request):
+    return render(request, 'museum/terms.html')

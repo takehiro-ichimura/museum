@@ -12,5 +12,6 @@ urlpatterns = [
     path('dbs/<int:dbs_id>', views.dbs_show, name="dbs_show"),
     path('thanks', views.thanks, name='thanks'),
     path('profile', views.profile, name='profile'),
+    path('terms', views.profile, name='terms'),
     path('', views.top, name='top'),
 ]

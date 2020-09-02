@@ -3,21 +3,39 @@
 {% block content %}
     <div class="row">
         <div class="col-md-6">
-            <a href="/profile" class="btn btn-lg btn-primary">Profile</a>
-            <a href="/news" class="btn btn-lg btn-primary">NEWS</a>
-            <a href="/dbs" class="btn btn-lg btn-primary">Detroit Blues Society</a>
-            <a href="/thanks" class="btn btn-lg btn-primary">special thanks</a>
             <div>
-                <h3>Record Collection</h3>
-                <a href="/artists" class="btn btn-lg btn-primary">ALL</a>
+                <div>
+                    <a href="/profile" class="text-black h4">・プロフィール - Who is Shono Mercy?</a>
+                </div>
+                <br />
+                <div>
+                    <a href="/news" class="text-black h4">・Shono ニュース</a>
+                </div>
+                <br />
+                <div>
+                    <a href="/dbs" class="text-black h4">・Detroit Blues Society 日本支部</a>
+                </div>
+                <br />
+                <div>
+                    <a href="/thanks" class="text-black h4">・Special Thanks</a>
+                </div>
+                <br />
+                <br />
+            </div>
+            <div>
+                <a href="/artists" class="text-black h3">Shono's Record Collection</a>
+                <br />
+                <p class="text-muted">ジャンル</p>
                 {% for genre in genres %}
                     <a href="/genres/{{ genre.id }}" class="btn btn-lg btn-primary">{{ genre.name }}</a>
                 {% endfor %}
             </div>
         </div>
-        <div class="col-md-6 thumbnail">
-            {% load static %}
-            <img src="{% static 'shono.jpg' %}">
+        <div class="col-md-6">
+            <div class="thumbnail">
+                {% load static %}
+                <img src="{% static 'shono.jpg' %}">
+            </div>
         </div>
     </div>
 {% endblock %}
