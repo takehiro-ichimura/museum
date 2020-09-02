@@ -2,17 +2,17 @@
 
 {% block content %}
     <div>
+        <div class="movie">
+            {% autoescape off %}
+                {{ post.movie_tag }}
+            {% endautoescape %}
+        </div>
         <h2>{{ post.title }}</h2>
         <h3>By
             {% for artist in artists %}
                 <a href="/artists#heading{{ artist.id }}">{{ artist.name }}</a>
             {% endfor %}
         </h3>
-        <div>
-            {% autoescape off %}
-                {{ post.movie_tag }}
-            {% endautoescape %}
-        </div>
         <p>{{ post.text|linebreaksbr }}</p>
         <p>published: {{ post.published_date }}</p>
     </div>

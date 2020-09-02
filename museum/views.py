@@ -40,3 +40,9 @@ def dbs(request):
 def dbs_show(request, dbs_id):
     dbs = Dbs.objects.all().get(id=dbs_id)
     return render(request, 'museum/dbs_show.html', {'dbs': dbs})
+
+def thanks(request):
+    return render(request, 'museum/thanks.html')
+
+def profile(request):
+    return render(request, 'museum/profile.html')

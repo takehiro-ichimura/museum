@@ -1,21 +1,23 @@
 {% extends 'museum/base.html' %}
 
 {% block content %}
-    <div>
-        <a href="/profile" class="btn">Profile</a>
-        <a href="/news" class="btn">NEWS</a>
-        <a href="/dbs" class="btn">Detroit Blues Society</a>
-        <a href="/thanks" class="btn">special thanks</a>
-    </div>
-    <div>
-        {% load static %}
-        <img src="{% static 'shono.jpg' %}">
-    </div>
-    <div>
-        <p>Record Collection</p>
-        <a href="/artists" class="btn">ALL</a>
-        {% for genre in genres %}
-            <a href="/genres/{{ genre.id }}" class="btn">{{ genre.name }}</a>
-        {% endfor %}
+    <div class="row">
+        <div class="col-md-6">
+            <a href="/profile" class="btn btn-lg btn-primary">Profile</a>
+            <a href="/news" class="btn btn-lg btn-primary">NEWS</a>
+            <a href="/dbs" class="btn btn-lg btn-primary">Detroit Blues Society</a>
+            <a href="/thanks" class="btn btn-lg btn-primary">special thanks</a>
+            <div>
+                <h3>Record Collection</h3>
+                <a href="/artists" class="btn btn-lg btn-primary">ALL</a>
+                {% for genre in genres %}
+                    <a href="/genres/{{ genre.id }}" class="btn btn-lg btn-primary">{{ genre.name }}</a>
+                {% endfor %}
+            </div>
+        </div>
+        <div class="col-md-6 thumbnail">
+            {% load static %}
+            <img src="{% static 'shono.jpg' %}">
+        </div>
     </div>
 {% endblock %}
