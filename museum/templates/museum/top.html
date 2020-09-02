@@ -8,6 +8,10 @@
         <a href="/thanks" class="btn">special thanks</a>
     </div>
     <div>
+        {% load static %}
+        <img src="{% static 'shono.jpg' %}">
+    </div>
+    <div>
         <p>Record Collection</p>
         <a href="/artists" class="btn">ALL</a>
         {% for genre in genres %}
