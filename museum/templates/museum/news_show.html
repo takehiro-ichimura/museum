@@ -1,0 +1,10 @@
+{% extends 'museum/base.html' %}
+
+{% block content %}
+    <div>
+        <h2>{{ news.title }}</h2>
+        <p>{{ news.text|linebreaksbr }}</p>
+        <p>published: {{ news.published_date }}</p>
+    </div>
+    <a href="/">top</a>
+{% endblock %}

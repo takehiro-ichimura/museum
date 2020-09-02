@@ -31,4 +31,12 @@ def news(request):
 
 def news_show(request, news_id):
     news = News.objects.all().get(id=news_id)
-    return render(request, 'museum/news.html', {'news': news})
+    return render(request, 'museum/news_show.html', {'news': news})
+
+def dbs(request):
+    dbss = Dbs.objects.all()
+    return render(request, 'museum/dbs.html', {'dbss': dbss})
+
+def dbs_show(request, dbs_id):
+    dbs = Dbs.objects.all().get(id=dbs_id)
+    return render(request, 'museum/dbs_show.html', {'dbs': dbs})
