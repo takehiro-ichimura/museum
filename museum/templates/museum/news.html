@@ -3,9 +3,8 @@
 {% block content %}
     {% for news in newss %}
         <div>
-            <a href="/news/{{ news.id }}">{{ news.title }}</a>
+            <h4><a href="/news/{{ news.id }}" class="text-dark">{{ news.title }}</a></h4>
         </div>
     {% endfor %}
 
-    <a href="/">top</a>
 {% endblock %}
