@@ -1,0 +1,9 @@
+{% extends 'museum/base.html' %}
+
+{% block content %}
+    <div>
+        <h2>{{ column.title }}</h2>
+        <p>{{ column.text|linebreaksbr|urlize }}</p>
+        <p>published: {{ column.published_date }}</p>
+    </div>
+{% endblock %}

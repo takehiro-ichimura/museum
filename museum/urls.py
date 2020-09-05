@@ -1,4 +1,5 @@
 from django.urls import path
+from django.shortcuts import redirect
 from . import views
 
 urlpatterns = [
@@ -10,8 +11,11 @@ urlpatterns = [
     path('news/<int:news_id>', views.news_show, name="news_show"),
     path('dbs', views.dbs, name="dbs"),
     path('dbs/<int:dbs_id>', views.dbs_show, name="dbs_show"),
+    path('columns', views.columns, name="columns"),
+    path('columns/<int:dbs_id>', views.column_show, name="column_show"),
     path('thanks', views.thanks, name='thanks'),
     path('profile', views.profile, name='profile'),
     path('terms', views.profile, name='terms'),
     path('', views.top, name='top'),
+    path('posts/<int:post_id>/comment/', views.add_comment_to_post, name='add_comment_to_post'),
 ]

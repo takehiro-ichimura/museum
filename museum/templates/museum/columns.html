@@ -1,0 +1,9 @@
+{% extends 'museum/base.html' %}
+
+{% block content %}
+    {% for column in columns %}
+        <div>
+            <a href="/dbs/{{ column.id }}">{{ column.title }}</a>
+        </div>
+    {% endfor %}
+{% endblock %}

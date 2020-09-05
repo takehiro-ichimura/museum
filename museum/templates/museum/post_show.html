@@ -1,20 +1,38 @@
 {% extends 'museum/base.html' %}
 
 {% block content %}
-    <div>
-        <div class="movie">
-            {% autoescape off %}
-                {{ post.movie_tag }}
-            {% endautoescape %}
+    <div class="row">
+        <div class="col-md-8">
+            <div class="movie">
+                {% autoescape off %}
+                    {{ post.movie_tag }}
+                {% endautoescape %}
+            </div>
+            <div class="pt-4">
+                <h2>{{ post.title }}</h2>
+                <h4 class="pl-5">By
+                    {% for artist in artists %}
+                        <a href="/artists#heading{{ artist.id }}">{{ artist.name }}</a>
+                    {% endfor %}
+                </h4>
+                <hr>
+                <p class="pt-2">{{ post.text|linebreaksbr|urlize }}</p>
+                <p>published: {{ post.published_date }}</p>
+            </div>
         </div>
-        <div class="pt-4">
-            <h2>{{ post.title }}</h2>
-            <h4 class="pl-5">By
-                {% for artist in artists %}
-                    <a href="/artists#heading{{ artist.id }}">{{ artist.name }}</a>
-                {% endfor %}
-            </h4>
-            <p class="pt-2">{{ post.text|linebreaksbr }}</p>
-            <p>published: {{ post.published_date }}</p>
+        <div class="col-md-4">
+            <p>コメント</p>
+            <hr>
+            {% for comment in post.comments.all %}
+                <div class="comment">
+                    <div class="date">{{ comment.created_date }}</div>
+                    <strong>{{ comment.author }}</strong>
+                    <p>{{ comment.text|linebreaks }}</p>
+                </div>
+            {% empty %}
+                <p>コメントはありません(</p>
+            {% endfor %}
+            <a class="btn btn-default" href="/posts/{{ post.id }}/comment">コメントする</a>
         </div>
+    </div>
 {% endblock %}
