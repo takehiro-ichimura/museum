@@ -7,14 +7,14 @@
                 {{ post.movie_tag }}
             {% endautoescape %}
         </div>
-        <h2>{{ post.title }}</h2>
-        <h3>By
-            {% for artist in artists %}
-                <a href="/artists#heading{{ artist.id }}">{{ artist.name }}</a>
-            {% endfor %}
-        </h3>
-        <p>{{ post.text|linebreaksbr }}</p>
-        <p>published: {{ post.published_date }}</p>
-    </div>
-    <a href="/">top</a>
+        <div class="pt-4">
+            <h2>{{ post.title }}</h2>
+            <h4 class="pl-5">By
+                {% for artist in artists %}
+                    <a href="/artists#heading{{ artist.id }}">{{ artist.name }}</a>
+                {% endfor %}
+            </h4>
+            <p class="pt-2">{{ post.text|linebreaksbr }}</p>
+            <p>published: {{ post.published_date }}</p>
+        </div>
 {% endblock %}
