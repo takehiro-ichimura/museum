@@ -16,6 +16,7 @@ urlpatterns = [
     path('thanks', views.thanks, name='thanks'),
     path('profile', views.profile, name='profile'),
     path('terms', views.terms, name='terms'),
+    path('aboutus', views.aboutus, name='aboutus'),
     path('', views.top, name='top'),
     path('posts/<int:post_id>/comment/', views.add_comment_to_post, name='add_comment_to_post'),
 ]

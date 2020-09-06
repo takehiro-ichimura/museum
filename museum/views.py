@@ -60,6 +60,9 @@ def profile(request):
 def terms(request):
     return render(request, 'museum/terms.html')
 
+def aboutus(request):
+    return render(request, 'museum/aboutus.html')
+
 def add_comment_to_post(request, post_id):
     post = get_object_or_404(Post, pk=post_id)
     if request.method == "POST":
