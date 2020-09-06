@@ -15,7 +15,7 @@ urlpatterns = [
     path('columns/<int:dbs_id>', views.column_show, name="column_show"),
     path('thanks', views.thanks, name='thanks'),
     path('profile', views.profile, name='profile'),
-    path('terms', views.profile, name='terms'),
+    path('terms', views.terms, name='terms'),
     path('', views.top, name='top'),
     path('posts/<int:post_id>/comment/', views.add_comment_to_post, name='add_comment_to_post'),
 ]

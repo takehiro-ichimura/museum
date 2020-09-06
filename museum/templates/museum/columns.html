@@ -4,6 +4,7 @@
     {% for column in columns %}
         <div>
             <a href="/dbs/{{ column.id }}">{{ column.title }}</a>
+            <p class＝"text-muted"><small>{{ news.published_date }}</small></p>
         </div>
     {% endfor %}
 {% endblock %}
