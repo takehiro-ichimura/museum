@@ -44,11 +44,11 @@ def dbs_show(request, dbs_id):
     return render(request, 'museum/dbs_show.html', {'dbs': dbs})
 
 def columns(request):
-    Columns = Column.objects.all()
+    columns = Column.objects.all()
     return render(request, 'museum/columns.html', {'columns': columns})
 
-def column_show(request, dbs_id):
-    Column = Column.objects.all().get(id=column_id)
+def column_show(request, column_id):
+    column = Column.objects.all().get(id=column_id)
     return render(request, 'museum/column_show.html', {'column': column})
 
 def thanks(request):
