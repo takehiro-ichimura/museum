@@ -89,7 +89,7 @@ class Migration(migrations.Migration):
                 ('created_date', models.DateTimeField(default=django.utils.timezone.now)),
                 ('html', models.BooleanField(default=False)),
                 ('published_date', models.DateTimeField(blank=True, null=True)),
-                ('genre_of_column', models.ManyToManyField(to='museum.GenreOfColumn')),
+                ('genre_of_column', models.ManyToManyField(to='museum.GenreOfColumn', blank=True, null=True)),
             ],
         ),
         migrations.AddField(
