@@ -62,6 +62,12 @@ class Dbs(models.Model):
     def __str__(self):
         return self.title
 
+class GenreOfColumn(models.Model):
+    name = models.CharField(max_length=200, default=None, blank=True)
+
+    def __str__(self):
+        return self.name
+
 class Column(models.Model):
     title = models.CharField(max_length=200)
     author = models.CharField(max_length=200)
@@ -69,6 +75,7 @@ class Column(models.Model):
     created_date = models.DateTimeField(default=timezone.now)
     html = models.BooleanField(default=False)
     published_date = models.DateTimeField(blank=True, null=True)
+    genre_of_column = models.ManyToManyField(GenreOfColumn)
 
     def publish(self):
         self.published_date = timezone.now()
@@ -76,7 +83,6 @@ class Column(models.Model):
 
     def __str__(self):
         return self.title
-
 class Comment(models.Model):
     post = models.ForeignKey('museum.Post', on_delete=models.CASCADE, related_name='comments')
     author = models.CharField(max_length=200)
