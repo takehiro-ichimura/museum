@@ -1,7 +1,7 @@
 from django.shortcuts import render, get_object_or_404
 from django.shortcuts import redirect
 from django.utils import timezone
-from .models import Post, Artist, Genre, News, Dbs, Column
+from .models import Post, Artist, Genre, News, Dbs, Column, GenreOfColumn
 from .forms import CommentForm
 
 # Create your views here.
@@ -11,17 +11,20 @@ def post_list(request):
 
 def genre_show(request, genre_id):
     genre = Genre.objects.all().get(id=genre_id)
+    genres = Genre.objects.all()
     artists = genre.artist_set.all()
-    return render(request, 'museum/artists.html', {'artists': artists, 'genre': genre})
+    return render(request, 'museum/artists.html', {'artists': artists, 'genre': genre, 'genres': genres})
 
 def post_show(request, post_id):
     post = Post.objects.all().get(id=post_id)
+    genres = Genre.objects.all()
     artists = post.artists.all()
-    return render(request, 'museum/post_show.html', {'post': post, 'artists': artists})
+    return render(request, 'museum/post_show.html', {'post': post, 'artists': artists, 'genres': genres})
 
 def artists(request):
     artists = Artist.objects.all()
-    return render(request, 'museum/artists.html', {'artists': artists})
+    genres = Genre.objects.all()
+    return render(request, 'museum/artists.html', {'artists': artists, 'genres': genres})
 
 def top(request):
     genres = Genre.objects.all()
@@ -45,7 +48,14 @@ def dbs_show(request, dbs_id):
 
 def columns(request):
     columns = Column.objects.all()
-    return render(request, 'museum/columns.html', {'columns': columns})
+    genres = GenreOfColumn.objects.all()
+    return render(request, 'museum/columns.html', {'columns': columns, 'genres': genres})
+
+def columnsgenre(request, columnsgenre_id):
+    genre = GenreOfColumn.objects.all().get(id=columnsgenre_id)
+    genres = GenreOfColumn.objects.all()
+    columns = Column.objects.all().filter(genre_of_column=columnsgenre_id)
+    return render(request, 'museum/columns.html', {'columns': columns, 'genres': genres, 'genre': genre})
 
 def column_show(request, column_id):
     column = Column.objects.all().get(id=column_id)

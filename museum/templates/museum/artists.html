@@ -1,8 +1,16 @@
 {% extends 'museum/base.html' %}
 
 {% block content %}
-    <h4>Shono's Record Collection</h4>
+    <h4><a href="/artists">Shono's Record Collection</a></h4>
+    <hr>
     <h4><strong>&nbsp;{{ genre.name }}</strong></h4>
+    <div class="pb-3">
+    {% for other_genre in genres %}
+        {% if other_genre.name != genre.name %}
+            <a href="/genres/{{ other_genre.id }}" class="btn btn-sm btn-btn btn-secondary mb-2">{{ other_genre.name }}</a>
+        {% endif %}
+    {% endfor %}
+    </div>
     <div class="accordion" id="accordionExample">
         {% for artist in artists %}
             <div class="card">

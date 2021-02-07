@@ -1,11 +1,22 @@
 {% extends 'museum/base.html' %}
 
 {% block content %}
-    <h4>コラム</h4><br />
-    {% for column in columns %}
-        <div>
-            <a href="/columns/{{ column.id }}">{{ column.title }}</a>
-            <p class＝"text-muted"><small>{{ column.published_date }}</small></p>
-        </div>
-    {% endfor %}
+    <h4>コラム</h4>
+    <hr>
+    <h4><strong>&nbsp;{{ genre.name }}</strong></h4>
+    <div class="pb-3">
+        {% for other_genre in genres %}
+            {% if other_genre.name != genre.name %}
+                <a href="/columnsgenre/{{ other_genre.id }}" class="btn btn-sm btn-btn btn-secondary mb-2">{{ other_genre.name }}</a>
+            {% endif %}
+        {% endfor %}
+    </div>
+    <div class="pl-3">
+        {% for column in columns %}
+            <div>
+                <a href="/columns/{{ column.id }}">{{ column.title }}</a>
+                <p class＝"text-muted"><small>{{ column.published_date }}</small></p>
+            </div>
+        {% endfor %}
+    </div>
 {% endblock %}

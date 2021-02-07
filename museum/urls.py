@@ -12,6 +12,7 @@ urlpatterns = [
     path('dbs', views.dbs, name="dbs"),
     path('dbs/<int:dbs_id>', views.dbs_show, name="dbs_show"),
     path('columns', views.columns, name="columns"),
+    path('columnsgenre/<int:columnsgenre_id>', views.columnsgenre, name="columnsgenre"),
     path('columns/<int:column_id>', views.column_show, name="column_show"),
     path('thanks', views.thanks, name='thanks'),
     path('profile', views.profile, name='profile'),

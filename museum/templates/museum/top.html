@@ -4,12 +4,17 @@
     <div class="row">
         <div class="col-md-6">
             <div class="pl-2">
+                <div class="pb-4">
+                    <a href="/artists" class="text-dark h4">Shono's Record Collection</a>
+                    <br />
+                    <br />
+                    {% for genre in genres %}
+                        <a href="/genres/{{ genre.id }}" class="btn btn-sm btn-secondary mb-2">{{ genre.name }}</a>
+                    {% endfor %}
+                </div>
+                <hr>
                 <div>
                     <a href="/profile" class="text-dark h5">プロフィール</a>
-                </div>
-                <br />
-                <div>
-                    <a href="/aboutus" class="text-dark h5">当サイトについて</a>
                 </div>
                 <br />
                 <div>
@@ -25,18 +30,14 @@
                 </div>
                 <br />
                 <div>
+                    <a href="/aboutus" class="text-dark h5">当サイトについて</a>
+                </div>
+                <br />
+                <div>
                     <a href="/thanks" class="text-dark h5">Special Thanks</a>
                 </div>
                 <br />
                 <br />
-            </div>
-            <div class="pb-4">
-                <a href="/artists" class="text-dark h4">Shono's Record Collection</a>
-                <br />
-                <p class="text-muted">ジャンル</p>
-                {% for genre in genres %}
-                    <a href="/genres/{{ genre.id }}" class="btn btn-lg btn-primary">{{ genre.name }}</a>
-                {% endfor %}
             </div>
         </div>
         <div class="col-md-6">
