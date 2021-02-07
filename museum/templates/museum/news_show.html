@@ -4,6 +4,8 @@
     <div>
         <h3>{{ news.title }}</h3>
         <p>{{ news.text|linebreaksbr|urlize }}</p>
+    </div>
+    <div class="text-right">
         <p>{{ news.published_date }}</p>
     </div>
 {% endblock %}

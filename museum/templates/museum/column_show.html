@@ -8,6 +8,8 @@
         {% else %}
             <p>{{ column.text|linebreaksbr|urlize }}</p>
         {% endif %}
+    </div>
+    <div class="text-right">
         <p>{{ column.published_date }}</p>
     </div>
 {% endblock %}
