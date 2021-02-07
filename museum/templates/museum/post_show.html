@@ -33,9 +33,13 @@
             <div class="pl-3">
                 {% for comment in post.comments.all %}
                     <div class="comment">
-                        <div class="date">{{ comment.created_date }}</div>
-                        <strong>By: {{ comment.author }}</strong>
-                        <p>{{ comment.text|linebreaks }}</p>
+                        <div>
+                            <p>{{ comment.text|linebreaks }}</p>
+                        </div>
+                        <div class="text-right">
+                            <!-- div class="date">{{ comment.created_date }}</div -->
+                            <strong>By: {{ comment.author }}</strong>
+                        </div>
                     </div>
                 {% empty %}
                     <p>コメントはありません</p>
