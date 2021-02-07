@@ -10,28 +10,37 @@
             </div>
             <div class="pt-4">
                 <h2>{{ post.title }}</h2>
-                <h4 class="pl-5">By
+            </div>
+            <div class="pl-3">
+                <h5>
+                    Artist: 
                     {% for artist in artists %}
                         <a href="/artists#heading{{ artist.id }}">{{ artist.name }}</a>
                     {% endfor %}
-                </h4>
+                </h5>
+            </div>
+            <div class="pl-3">
                 <hr>
                 <p class="pt-2">{{ post.text|linebreaksbr|urlize }}</p>
+            </div>
+            <div class="text-right">
                 <p>{{ post.published_date }}</p>
             </div>
         </div>
         <div class="col-md-4">
             <p>コメント</p>
             <hr>
-            {% for comment in post.comments.all %}
-                <div class="comment">
-                    <div class="date">{{ comment.created_date }}</div>
-                    <strong>By: {{ comment.author }}</strong>
-                    <p>{{ comment.text|linebreaks }}</p>
-                </div>
-            {% empty %}
-                <p>コメントはありません</p>
-            {% endfor %}
+            <div class="pl-3">
+                {% for comment in post.comments.all %}
+                    <div class="comment">
+                        <div class="date">{{ comment.created_date }}</div>
+                        <strong>By: {{ comment.author }}</strong>
+                        <p>{{ comment.text|linebreaks }}</p>
+                    </div>
+                {% empty %}
+                    <p>コメントはありません</p>
+                {% endfor %}
+            </div>
             <a class="btn" href="/posts/{{ post.id }}/comment">コメントする</a>
         </div>
     </div>
