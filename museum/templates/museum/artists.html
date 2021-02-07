@@ -24,7 +24,7 @@
                 <div id ="collapse{{ artist.id }}" class="collapse" aria-labelledby="heading{{ artist.id }}" data-parent="#accordionExample">
                     <div class="card-body">
                         {% for post in artist.post_set.all %}
-                            <div class="pl-4 py-1"><a href="/posts/{{ post.id }}">{{ post.title }}</a></div>
+                            <div class="pl-3 py-2"><a href="/posts/{{ post.id }}">{{ post.title }}</a></div>
                         {% endfor %}
                     </div>
                 </div>
