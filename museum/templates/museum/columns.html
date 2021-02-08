@@ -15,6 +15,8 @@
         {% for column in columns %}
             <div>
                 <a href="/columns/{{ column.id }}">{{ column.title }}</a>
+            </div>
+            <div class="text-right">
                 <p class＝"text-muted"><small>{{ column.published_date }}</small></p>
             </div>
         {% endfor %}
