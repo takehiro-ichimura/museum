@@ -1,11 +1,11 @@
 {% load static %}
 <script>
-  function goBack() {
-    window.history.back();
-  }
-  function reLoad() {
-    window.location.reload();
-  }
+    function goBack() {
+        window.history.back();
+    }
+    function reLoad() {
+        window.location.reload();
+    }
 </script>
 <html>
     <head>
@@ -34,7 +34,7 @@
                     {% block content %}
                     {% endblock %}
                 </div>
-                <div class="pt-4">
+                <div class="pt-4 text-right">
                     <div onclick="goBack()" class="btn grey left"><span>戻る</span></div>
                     <input type="button" value="再読み込み" class="btn grey right" onclick="reLoad()" />
                 </div>
