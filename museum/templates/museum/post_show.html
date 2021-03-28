@@ -24,7 +24,7 @@
                 <p class="pt-2">{{ post.text|linebreaksbr|urlize }}</p>
             </div>
             <div class="text-right">
-                <p>{{ post.published_date }}</p>
+                <p>{{ post.published_date|date:"Y年n月j日 }}</p>
             </div>
         </div>
         <div class="col-md-4">
