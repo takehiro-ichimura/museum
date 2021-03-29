@@ -3,7 +3,7 @@
 {% block content %}
     <h4>ニュース</h4>
     <hr>
-    <div class="pl-3">
+    <div>
         {% for news in newss %}
             <div>
                 <a href="/news/{{ news.id }}" class="text-dark">{{ news.title }}</a>
