@@ -1,6 +1,7 @@
 from django.urls import path
 from django.shortcuts import redirect
 from . import views
+from django.views.generic import TemplateView 
 
 urlpatterns = [
     path('posts', views.post_list, name='post_list'),
@@ -18,6 +19,7 @@ urlpatterns = [
     path('profile', views.profile, name='profile'),
     path('terms', views.terms, name='terms'),
     path('aboutus', views.aboutus, name='aboutus'),
-    path('', views.top, name='top'),
     path('posts/<int:post_id>/comment/', views.add_comment_to_post, name='add_comment_to_post'),
+    path('ads.txt', TemplateView.as_view(template_name='museum/ads.txt', content_type='text/plain')),
+    path('', views.top, name='top'),
 ]
